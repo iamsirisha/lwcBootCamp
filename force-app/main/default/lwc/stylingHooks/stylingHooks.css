@@ -1,0 +1,27 @@
+.formatCard
+{
+    --slds-c-card-color-background:var(--lwc-colorBackgroundHighlight);
+    --slds-c-card-text-color :var(--lwc-colorTextError);
+
+}
+.formatButton{
+    --slds-c-button-brand-color-background:purple;
+    --slds-c-button-brand-color-background-active:purple;
+    --slds-c-button-brand-color-background-hover:purple;
+    --slds-c-button-brand-color-border:blue;
+
+}
+.formatBadge{
+
+    --slds-c-badge-color-background:red;
+    --slds-c-badge-color-border:blue;
+
+
+}
+.formatPill{
+    
+    --slds-c-pill-color-background:rgb(239, 11, 121);
+    --slds-c-pill-error-text-color:Black;
+
+
+}

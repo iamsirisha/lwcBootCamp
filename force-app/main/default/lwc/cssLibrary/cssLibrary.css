@@ -1,0 +1,19 @@
+h1{
+    font-size:30px;
+    color:red;
+
+}
+.paraclass{
+    font-size:25px;
+    color: blue;
+}
+.auraclass {
+    background-color: var(--c-custombackground);
+
+}
+.btnbg{
+    --slds-c-button-brand-color-background :yellow;
+    --slds-c-button-brand-color-background-active:violet;
+    --slds-c-button-brand-color-background-hover:var(--c-custombackground);
+
+}
