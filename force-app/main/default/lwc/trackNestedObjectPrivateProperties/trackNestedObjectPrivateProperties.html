@@ -1,0 +1,43 @@
+<template>
+   <lightning-card title="NestedObjectPrivateProperties">
+    <div class="slds-var-p-around-small">
+       <p>{myDetails.fname}</p> 
+       <p>{myTasks}</p>
+       <p>{myNewDetails.fname},{myNewDetails.lname}</p>
+       <lightning-button
+       variant="brand"
+        label="Chnage Me!"
+        title="Nested Private Property"
+        icon-name="standard:announcement"
+        class="slds-var-p-around-small"
+        onclick={clickHandler}
+        >
+       </lightning-button>
+    </div>
+<br/>
+<div class="slds-var-p-around-small">
+    <lightning-button
+    variant="brand"
+     label="Add Task"
+     title="Nested Private Property"
+     icon-name="standard:announcement"
+     class="slds-var-p-around-small"
+     onclick={taskHandler}
+     >
+    </lightning-button>
+   </div>
+   <br/>
+   <div class="slds-var-p-around-small">
+    <lightning-button
+    variant="brand"
+     label="Refresh Handler"
+     title="Nested Private Property"
+     icon-name="standard:announcement"
+     class="slds-var-p-around-small"
+     onclick={refreshHandler}
+     >
+    </lightning-button>
+    </div>
+   </lightning-card> 
+
+</template>
