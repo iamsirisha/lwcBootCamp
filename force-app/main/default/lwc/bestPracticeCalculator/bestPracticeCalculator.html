@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Calculator" icon-name="custome:custom15">
+        <div class="slds-var-p-around_small">
+            <lightning-input label="Number1"
+                name="number1"
+                placeholder="Enter Number1"
+                onchange={changeHandler}
+                value={numberone}
+            >
+            </lightning-input>
+            <lightning-input label="Number2"
+                name="number2"
+                placeholder="Enter Number2"
+                onchange={changeHandler}
+                value={numbertwo}
+            >
+            </lightning-input>
+        </div>
+        <lightning-button label="Add"
+            variant="brand"
+            title="Addition of 2 Numbers"
+            onclick={calculateInput}
+            class="slds-var-p-around_small"
+        >
+        </lightning-button>
+        <lightning-button label="Subtract"
+            variant="brand"
+            title="Subtraction of 2 Numbers"
+            onclick={calculateInput}
+            class="slds-var-p-around_small">
+        </lightning-button>
+        <lightning-button label="Multiply"
+            variant="brand"
+            title="Multiplication of 2 Numbers"
+            onclick={calculateInput}
+            class="slds-var-p-around_small"> <!-- Corrected the class name -->
+        </lightning-button>
+        <lightning-button label="Division"
+            variant="brand"
+            title="Division of 2 Numbers"
+            onclick={calculateInput}
+            class="slds-var-p-around_small">
+        </lightning-button>
+        <div class="slds-var-p-around_small">
+            <p> Output: {result}</p>
+        </div>
+    </lightning-card>
+</template>

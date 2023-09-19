@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Convert to UpperCase">
+        <div class="slds-p-around_medium">
+            <lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>
+            <lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}></lightning-input>
+    </div>
+        <lightning-button label="Convert to Uppercase" variant="brand" onclick={convertToUppercase}></lightning-button>
+            <p>Converted Name: {convertedFirstName} {convertedLastName}</p>
+        
+    </lightning-card>
+</template>
