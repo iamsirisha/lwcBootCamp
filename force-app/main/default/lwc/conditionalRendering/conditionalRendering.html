@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Conditional Rendering" icon-name="custom:custom14">
+        <div class="slds-p-around_small">
+            <lightning-input 
+                type="checkbox"
+                label="Display Message"
+                name="input1"
+                onchange={changeHandler}>
+            </lightning-input>
+        </div>
+        <div class="slds-p-around_small">
+            <template lwc:if={displayMessage}>
+                <p>I am Learning LWC from Tech Journey With Ankit Youtube Channel. Without persistence, you won't start and without consistency, you won't complete.</p>
+            </template>
+            <template lwc:else>
+                <p>If you are not consistent and not practicing, it means you won't learn LWC and will regret every day.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

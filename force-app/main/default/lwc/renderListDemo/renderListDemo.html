@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Load Primitive Array" icon-name="custom:custom14">
+        <div class="slds-var-p-around_small">
+        <template for:each={superstars} for:item="star">
+            <p key={star}> {star}</pkey></p>
+        </template>
+        </div>
+    </lightning-card>
+<div></div>
+<lightning-card title="Load Complex Data" icon-name="custom:custom14">
+<div class="slds-var-p-around_small">
+<template for:each={contactList} for:item="contact">
+    <p key={contact.id}>{contact.firstname}-{contact.company}</p>
+</template>
+</div>
+</lightning-card>
+<div></div>
+<lightning-card title="Load Complex Data- Iterators" icon-name="custom:custom14">
+    <div class="slds-var-p-around_small">
+        <template iterator:it={contactList}>
+            <div key={it.value.id}>
+                <div lwc:if={it.first} class="list-first"></div>
+                <p>{it.value.firstname} - {it.value.company}</p>
+                <div lwc:if={it.last} class="list-last"></div>
+            </div>
+        </template>
+    </div>
+</lightning-card>
+
+</template>

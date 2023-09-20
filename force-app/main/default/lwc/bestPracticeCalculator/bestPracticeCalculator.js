@@ -4,7 +4,7 @@ export default class BestPracticeCalculator extends LightningElement {
     numberone = ""; // initializing numberone and numbertwo as text
     numbertwo = "";
     result = 0; // initializing result with 0
-
+    displayOutput=false;//initialising to false when loadng of compnent no display purpose
     changeHandler(event) {
         let { name, value } = event.target;
 
@@ -16,6 +16,7 @@ export default class BestPracticeCalculator extends LightningElement {
     }
 
     calculateInput(event) {
+        this.displayOutput=true;
         let labelelement = event.target.label;
 
         if (labelelement === "Add") {
