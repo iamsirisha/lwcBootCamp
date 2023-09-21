@@ -5,4 +5,5 @@ background-color: blue;
 .pink-border
 {
 border : solid rgb(219, 68, 159);
+border-width:1 px;
 }
