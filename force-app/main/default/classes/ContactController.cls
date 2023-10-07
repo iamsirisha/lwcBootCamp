@@ -5,7 +5,7 @@ public class ContactController
     {
         List<Contact> Contactlist=[Select id,
         Name,
-        FirstName,
+        FirstName, 
         LastName,
         Email,PhotoUrl
          from 
