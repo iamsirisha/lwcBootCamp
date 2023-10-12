@@ -5,6 +5,7 @@ import CONTACT_NAME from "@salesforce/schema/Contact.Name";
 export default class GetRecordsDemouiRecordApi extends LightningElement {
     outputs;
     errors;
+
     @wire(getRecords,
         {
             records:[

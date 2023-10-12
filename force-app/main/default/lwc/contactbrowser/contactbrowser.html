@@ -1,0 +1,18 @@
+<template>
+
+    <div class="slds-box slds-theme_info">
+        <h1 class="slds-text-color_destructive slds-text-align_center slds-text-heading_large"><b>Contact Browser Mini Project</b></h1>
+      </div>
+    <!--To Disply Filter-->
+    <div>
+        <c-contact-filter onfilterchange = {handlerFilterChange}></c-contact-filter>
+    </div>
+           
+    <!--To Disply TabSet-->
+    <div>
+        <lightning-tabset>
+            <lightning-tab label="Grid" title="Grid"></lightning-tab>
+            <lightning-tab label="Gallery" title="Gallery"></lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>

@@ -1,0 +1,47 @@
+<template>
+    <lightning-layout horizontal-align="spread" 
+                    
+                    class="slds-box slds-theme_shade slds-theme_alert-texture">
+
+            <lightning-layout-item padding="around-small" size="4">
+                <c-account-custom-lookup api-name = "Account" 
+                                         object-label = "Account"
+                                         icon-name ="standard:account"
+                                        onselectrec = {selectedRecordHandler}
+                ></c-account-custom-lookup>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="4">
+                <template lwc:if={industrypicklist.data}>
+                <lightning-combobox 
+                    label="Industry"
+                    value="Industry"
+                    placeholder="Select Industry"
+                    options={industrypicklist.data.values}
+                    onchange={changehandler}
+                
+                ></lightning-combobox>
+            </template>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="4" class="slds-m-top_large slds-m-left_small">
+                <lightning-button-group>
+                    <lightning-button
+                    variant="brand"
+                    disabled={isButtonDisabled}
+                    label="Create New Contact"
+                    onclick={addNewContact}
+                    ></lightning-button> &nbsp;&nbsp;
+
+                    <lightning-button
+                    variant="destructive"
+                    disabled={isButtonDisabled}
+                    label="Bulk Records Delete"
+                    onclick={bulkDeleteHandler}
+                    ></lightning-button>
+                </lightning-button-group>
+            </lightning-layout-item>
+
+
+    </lightning-layout>
+</template>
