@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Record Form Demo-View Mode Can create record y removing recordId in html">
+        <lightning-record-form
+            object-api-name={objectApiName}
+            fields={fieldsList}
+            columns="2"
+            onsuccess={navigatetoRecord}
+        >
+        </lightning-record-form>
+    </lightning-card>
+    <lightning-card title="Record Form Demo-ReadOnly mode">
+        <lightning-record-form
+            object-api-name={objectApiName}
+            record-id={recordId}
+            fields={fieldsList}
+            columns="2"
+            mode="readonly"
+        >
+        </lightning-record-form>
+    </lightning-card>
+    <lightning-card title="Record Form Demo-Edit mode">
+        <lightning-record-form
+            object-api-name={objectApiName}
+            record-id={recordId}
+            fields={fieldsList}
+            columns="2"
+            mode="edit"
+            onsuccess={showToast}
+        >
+        </lightning-record-form>
+    </lightning-card>
+</template>
