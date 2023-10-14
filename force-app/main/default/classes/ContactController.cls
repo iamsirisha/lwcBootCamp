@@ -7,7 +7,10 @@ public class ContactController
         Name,
         FirstName, 
         LastName,
-        Email,PhotoUrl
+        Email,
+        PhotoUrl,
+        Phone,
+        Title
          from 
          Contact where 
          PhotoUrl != null with USER_MODE 

@@ -8,6 +8,7 @@ export default class GetObjectInfoDemouiObjectInfoApi extends LightningElement {
     @wire(getObjectInfo,{
         objectApiName:ACCOUNT_OBJECT,
     })
+
     outputFunction({data,error}){
 if(data){
     console.log("data",data);

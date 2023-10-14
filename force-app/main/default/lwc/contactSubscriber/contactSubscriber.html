@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Send Contact-Subscriber">
+<template lwc:if={selectedContact}>
+<p>{selectedContact.Name}</p>
+<p>{selectedContact.Title}</p>
+<p>
+    <lightning-formatted-phone value={selectedContact.Phone}></lightning-formatted-phone>
+</p>
+<p>
+    <lightning-formatted-email value={selectedContact.Email}></lightning-formatted-email>
+</p>
+   
+</template>
+</lightning-card>
+</template>
