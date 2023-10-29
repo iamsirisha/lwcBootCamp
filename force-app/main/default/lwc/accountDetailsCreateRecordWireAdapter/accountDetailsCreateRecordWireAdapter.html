@@ -1,0 +1,77 @@
+<template> 
+    <lightning-card title ={formTitle}
+                    icon-name = "custom:custom"> 
+    <div class="slds-var-p-around_small"> 
+        <lightning-combobox 
+                        name = "parentacc" 
+                        label = "Parent Account" 
+                        placeholder = "Select Parent Account" 
+                        options = {parentoptions} 
+                        onchange = {handleChange}  
+                        required = "true" 
+                        class = "validateme" 
+                        value={selParentAcc}
+                        message-when-value-missing = "Please select Parent Account "> 
+        </lightning-combobox> 
+        <lightning-input type = "text" 
+                        name = "accname" 
+                        label ="Account Name" 
+                         placeholder = " Enter Account Name" 
+                         required = "true" 
+                         message-when-value-missing = "Enter Account Name " 
+                         min-length = "2" 
+                         max-length = "60" 
+                         message-when-too-short = "minimum length of Account Name is 2" 
+                         message-when-too-long = "Maximium length of Account Name is 60" 
+                         onchange = {handleChange} 
+                         class = "validateme"
+                         value={selAccName}> 
+        </lightning-input> 
+        <lightning-input type = "Date" 
+                         onchange =  {handleChange} 
+                         label =  "SLA Expiration Date" 
+                         name = "slaexpdt"
+                         value={selExpDate}> 
+        </lightning-input> 
+    <template lwc:if = {slapicklist.data}>   
+        <lightning-radio-group name = "slatype" 
+                           label = "SLA Type" 
+                           options = {slapicklist.data.values} 
+                           required = "true" 
+                           type = "button" 
+                           onchange =  {handleChange}
+                           value={selSlaType}> 
+        </lightning-radio-group> 
+    </template> 
+         <lightning-slider label = "Number of Locations"  
+                            min = "1" 
+                            max = "50" 
+                            step = "1" 
+                            value = {selnoOfLocations} 
+                            onchange = {handleChange} 
+                            name = "nooflocations"> 
+        </lightning-slider> 
+        <lightning-input-rich-text label="Description"  
+                                    name = "description" 
+                                    disabled-categories = "FORMAT_TEXT, FORMAT_FONT" 
+                                    onchange = {handleChange}
+                                    value={selDescription}> 
+        </lightning-input-rich-text> 
+    </div> 
+    
+        <lightning-button label = "Save"  
+                          variant = "brand" 
+                          onclick ={saveRecord}
+                          class="slds-var-p-around_small"> 
+        </lightning-button> 
+ 
+    <template lwc:if={IsDelete}>
+        <lightning-button label = "Delete"  
+                          variant = "destructive" 
+                          onclick ={deleteHandler}
+                          class="slds-var-p-around_small"> 
+        </lightning-button> 
+
+</template> 
+    </lightning-card> 
+</template>

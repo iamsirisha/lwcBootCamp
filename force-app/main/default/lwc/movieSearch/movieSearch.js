@@ -4,6 +4,7 @@ export default class MovieSearch extends LightningElement {
     selectedType="";
     selectedSearch="";
     selectedPageNo="1";
+    selectedMovie="";
     loading=false;
     delayTimeout;
    searchResult=[];
@@ -54,6 +55,17 @@ if (data.Response === "True")
 {
     this.searchResult=data.Search;
 }
+    }
+    movieSelectedHandler(event)
+    {
+
+    this.selectedMovie=event.detail;
+    console.log("movieSelectedHandler",this.selectedMovie);
+    }
+
+    get displaySearchResult()
+    {
+return this.searchResult.length > 0 ? true: false;
     }
       
 
