@@ -11,7 +11,7 @@ export default class MovieSearch extends LightningElement {
     get typeoptions() 
     {
         return [
-            {label:'None',value:""},
+            { label:'None',value:""},
             { label: 'Movie', value: 'movie' },
             { label: 'Series', value: 'series' },
             { label: 'Epsiode', value: 'epsiode' },
@@ -19,26 +19,26 @@ export default class MovieSearch extends LightningElement {
     }
     handleChange(event)
     {
-       let {name,value}=event.target;
+       let {name,value} = event.target;
        this.loading=true;
-       if(name ==="type")
+       if(name === "type")
        {
        this.selectedType=value;
        }
-    else if(name ==="search")
+    else if(name === "search")
     {
         this.selectedSearch=value;
     }
-    else if(name ==="pageno" )
+    else if(name === "pageno" )
     {
         this.selectedPageNo=value;
     }
 
     //debouncing
     clearTimeout(this.delayTimeout);
-this.delayTimeout=setTimeout(()=> {
+    this.delayTimeout=setTimeout(()=> {
     this.searchMovie();
-},DELAY)
+},DELAY);
   
     }
 
@@ -46,6 +46,7 @@ this.delayTimeout=setTimeout(()=> {
    async searchMovie()
     {
         //https://www.omdbapi.com/?s=${this.selectedSearch}&type=${this.selectedType}&page=${this.selectedPageNo}&apikey=59e9dc75
+        
        const url=`https://www.omdbapi.com/?s=${this.selectedSearch}&type=${this.selectedType}&page=${this.selectedPageNo}&apikey=59e9dc75`;
 const res=await fetch(url);
 const data= await res.json();
@@ -65,7 +66,7 @@ if (data.Response === "True")
 
     get displaySearchResult()
     {
-return this.searchResult.length > 0 ? true: false;
+    return this.searchResult.length > 0 ? true: false;
     }
       
 

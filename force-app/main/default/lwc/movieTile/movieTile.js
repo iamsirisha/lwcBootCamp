@@ -6,7 +6,7 @@ export default class MovieTile extends LightningElement {
 
     clickHandler(event)
     {
-console.log(this.movie.imDB);
+console.log(this.movie.imDBID);
 
 //custom Event
 const evt=new CustomEvent("selectedmovie",{
@@ -19,6 +19,6 @@ const evt=new CustomEvent("selectedmovie",{
 }
 get tileSelected()
 {
-return this.selctedMovieId === this.movie.imDB ? "tile selected":"tile";
+return this.selctedMovieId === this.movie.imDBID ? "tile selected":"tile";
 }
 }

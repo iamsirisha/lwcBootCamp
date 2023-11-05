@@ -26,5 +26,5 @@ cursor: pointer;
     text-align: center;
 }
 .selected{
-    border: 5px solid red
+    border: 5px solid rgb(72, 0, 255)
 }

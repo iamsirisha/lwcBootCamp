@@ -1,7 +1,7 @@
 <template>
     <div class="filterstyle">
 <!--Filter Section-->
-<lightning-layout horisontal-aligh="center">
+<lightning-layout horizontal-align="center">
 <lightning-layout-item 
  padding="around_small"
  size="3">
@@ -11,19 +11,20 @@
  value={selectedType}
  placeholder="Select Type"
  options={typeoptions}
- onchange={handleChange} ></lightning-combobox>
+ onchange={handleChange}>
+</lightning-combobox>
 </lightning-layout-item>
 
 <lightning-layout-item
-padding="around_small"
-size="6">
+ padding="around_small"
+ size="6">
 <lightning-input
-name="search"
-label="Enter Search Item"
-placeholder="Search for Movie/Series"
-type="search"
-onchange={handleChange}
-is-loading={loading}
+ name="search"
+ label="Enter Search Item"
+ placeholder="Search for Movie/Series"
+ type="search"
+ onchange={handleChange}
+ is-loading={loading}
 ></lightning-input>
 </lightning-layout-item>
 
@@ -35,7 +36,7 @@ size="3">
  name="pageno" 
  label="Page" 
  onchange={handleChange}
- value="selectedPageNo"
+ value={selectedPageNo}
  field-level-help="Range 1-100"
  min="1"
  max="100"
@@ -53,14 +54,17 @@ size="3">
 <div class="slds-var-m-around_top_large slds-scrollable_y displaystyle slds-box">
 <lightning-layout
    horizontal-align="center"
-  multiple-rows="true">
-<template for:each={searchResult} for:item="searchItem">
-<lightning-layout-item
-  size="3"
- padding="around_small"
+   multiple-rows="true">
+ <template for:each={searchResult} for:item="searchItem">
+ <lightning-layout-item
+ size="3"
+ padding="around-small"
  key={searchItem.imdbID}>
 
-<c-movie-tile movie={searchItem} onselectedmovie={movieSelectedHandler} selected-movie-id={selectedMovie}></c-movie-tile>
+<c-movie-tile movie={searchItem} 
+ selected-movie-id={selectedMovie}
+  onselectedmovie={movieSelectedHandler}>
+</c-movie-tile>
 </lightning-layout-item>
 
 </template>

@@ -1,12 +1,11 @@
 public with sharing class AccountHelper
 {
 @AuraEnabled(cacheable=true)
-public static List<Account> getAccountData()
+public static List<Account> getAccountData(String inputIndustry)
 {
 return
-[Select Id,Name,Industry,Rating from Account
- with 
- USER_MODE];
+[Select Id,Name,Industry,Rating from Account where Industry=:inputIndustry
+ with USER_MODE];
 
 }
 @AuraEnabled(cacheable=true)

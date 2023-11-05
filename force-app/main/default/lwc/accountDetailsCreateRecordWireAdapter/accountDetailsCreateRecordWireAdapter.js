@@ -214,7 +214,6 @@ console.log("Error message During the Retrieval",error);
             console.log("Record Deleted failer", error);
         });
     }
-
  }
         
 
