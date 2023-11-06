@@ -4,7 +4,7 @@ import ACCOUNT_NAME from "@salesforce/schema/Account.Name";
 import TICKER_SYMBOL from "@salesforce/schema/Account.TickerSymbol";
 import { getFieldValue, getRecord } from 'lightning/uiRecordApi';
 import TickerSymbol from '@salesforce/schema/Account.TickerSymbol';
-
+import { notifyRecordUpdateAvailable } from 'lightning/uiRecordApi';
 export default class ImperativeApexDemoUpdateOperation extends LightningElement {
 @api recordId;
 accname;
@@ -18,14 +18,11 @@ acctickersymbol;
 console.log("Get Acc Record",data);
 this.accname=getFieldValue(data,ACCOUNT_NAME);
 this.accticker=getFieldValue(data,TickerSymbol);
-
    }else if(error)
    {
     console.log("Error Occured",error);
    } 
 }
-
-
     changeHandler(event){
     this.accticker=event.target.value;
     }
@@ -34,11 +31,11 @@ this.accticker=getFieldValue(data,TickerSymbol);
             recordId:this.recordId,
             newTicker:this.accticker
         }).then(result=>{
+            notifyRecordUpdateAvailable([{ recordId :this.recordId }]);
         console.log("Record Updated Successfully!",result);
-        notifyRecordUpdateAvailable([{recordId : this.recordId}]);
+    
         }).catch(error=>{
        console.log("Error Occured Update Failed",error);
         })
-
     };
 }
