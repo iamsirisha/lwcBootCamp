@@ -8,6 +8,7 @@ export default class StaticResourceDemo extends LightningElement
     mystatresFile=YOUTUBECHANNELLOGO;
     myAssetLogo= ASSETLOGO;
 
+    
 label={
     platorm:SALESFORCE_PLATFORM,
     greeting:GREETING
