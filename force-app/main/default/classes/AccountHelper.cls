@@ -27,4 +27,11 @@ public static string updateTickerMethod(String recordId,String newTicker){
   return ex.getMessage();
     }
 }
+
+@AuraEnabled
+public static Account createAccount(Account acc) {
+    system.debug('acc'+acc);
+    insert acc;
+    return acc;
+}
 }
