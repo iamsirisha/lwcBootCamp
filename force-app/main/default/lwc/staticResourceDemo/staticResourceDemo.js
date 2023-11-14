@@ -7,8 +7,9 @@ import LOGGEDINUSER from "@salesforce/user/Id";
 import { getFieldValue, getRecord } from 'lightning/uiRecordApi';
 import NAME_FIELD from "@salesforce/schema/User.Name";
 import CHECK_PERMISSION from "@salesforce/customPermission/displayText";
-import { loadStyle } from 'lightning/platformResourceLoader';
+import { loadStyle ,loadScript } from 'lightning/platformResourceLoader';
 import ANIMATETHIRDPARTYCSS from '@salesforce/resourceUrl/ThirdPartyCss';
+import THIRDPARTYJS from '@salesforce/resourceUrl/ThirdPartyJs';
 
 
 export default class StaticResourceDemo extends LightningElement
@@ -17,7 +18,7 @@ export default class StaticResourceDemo extends LightningElement
     myAssetLogo= ASSETLOGO;
  isFirstLoad=true;
  name="";
-   
+displayDate="";
     get CheckPermission(){
         return CHECK_PERMISSION;
      }
@@ -26,9 +27,12 @@ export default class StaticResourceDemo extends LightningElement
         if(this.isFirstLoad)
         {
             this.isFirstLoad=false;
-         loadStyle(this,ANIMATETHIRDPARTYCSS)
-         .then(()=>{
+            Promise.all([
+                loadStyle(this,ANIMATETHIRDPARTYCSS),loadScript(this,THIRDPARTYJS)
+            ])
+         .then(()=> {
             console.log("File loaded Succesfully!")
+            this.fetchDate();
         })
         .catch((error) => {
             console.log("File Loaded failed",error);
@@ -50,14 +54,15 @@ wired_User_details({data,error})
     if(data)
     {
     console.log("Logged in User Details Data",data);
-  this.name=  getFieldValue(data, NAME_FIELD);
+    this.name = getFieldValue(data, NAME_FIELD);
     }
     else if(error)
     {    console.log("Logged In User Details Error ",error);
 
     }
 }
- 
-
-
+ fetchDate()
+ {
+    this.displayDate=moment().format('LLL');
+ }
 }
